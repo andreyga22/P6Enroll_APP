@@ -5,7 +5,7 @@ namespace P6Enroll_APP {
         public App() {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new P6Enroll_APP.Views.FirstPage());
         }
     }
 }
