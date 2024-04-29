@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maui.Devices.Sensors;
 using P6Enroll_APP.Models;
 
 namespace P6Enroll_APP.ViewModels {
@@ -46,7 +48,17 @@ namespace P6Enroll_APP.ViewModels {
                 }
 
             } catch (Exception) {
+                throw;
+            }
+        }
 
+        public async Task<bool> modifyLocationAsync(P6Enroll_APP.Models.Location newLocation) {
+            try {
+                bool modified = false;
+                modified = await MyUser.modifyLocationAsync(newLocation);
+                return modified;
+
+            } catch (Exception) {
                 throw;
             }
         }
