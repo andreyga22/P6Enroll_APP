@@ -36,14 +36,39 @@ public partial class LocationView : ContentPage
     }
 
     private async void BtnSave_Clicked(object sender, EventArgs e) {
-        P6Enroll_APP.Models.Location newLocation =new Models.Location();
-
-        newLocation.Id = (int)Convert.ToInt64(TxtId.Text);
-        newLocation.IdLocation = TxtIdLocation.Text;
-        newLocation.Name = TxtName.Text;
-        newLocation.Address = TxtAddress.Text;
-
-        await vm.modifyLocationAsync(newLocation);
+        
+        try {
+            P6Enroll_APP.Models.Location newLocation = new Models.Location();
+            newLocation.Id = (int)Convert.ToInt64(TxtId.Text);
+            newLocation.IdLocation = TxtIdLocation.Text;
+            newLocation.Name = TxtName.Text;
+            newLocation.Address = TxtAddress.Text;
+            
+            if (String.IsNullOrEmpty(TxtId.Text)) {
+                newLocation.Id = 0;
+                bool saved = await vm.insertLocationAsync(newLocation);
+                if (saved) {
+                    await DisplayAlert(":)", "Location saved", "OK");
+                    cleanUp();
+                } else {
+                    await DisplayAlert(":(", "Error saving location", "OK");
+                    cleanUp();
+                }
+            } else {
+                bool saved = await vm.modifyLocationAsync(newLocation);
+                if (!saved) {
+                    await DisplayAlert(":)", "Location Updated", "OK");
+                    cleanUp();
+                } else {
+                    await DisplayAlert(":(", "Error updating location", "OK");
+                    cleanUp();
+                }
+            }
+            
+        }catch (Exception) {
+            throw;
+        }
+        LoadLocations();
     }
 
     private void BtnClean_Clicked(object sender, EventArgs e) {

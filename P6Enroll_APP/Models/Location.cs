@@ -48,18 +48,44 @@ namespace P6Enroll_APP.Models
 
         public async Task<bool> modifyLocationAsync(P6Enroll_APP.Models.Location newLocation) {
             try {
-                string RouterSufix = string.Format("Locations");
-                string URL = Services.WebAPIConnection.ProductionURLPrefix + RouterSufix + "\\" + newLocation.Id;
+                string RouterSufix = string.Format("Locations/{0}", newLocation.Id);
+                string URL = Services.WebAPIConnection.ProductionURLPrefix + RouterSufix;
 
                 RestClient client = new RestClient(URL);
                 request = new RestRequest(URL, Method.Put);
                 request.AddHeader(Services.WebAPIConnection.ApiKeyName, Services.WebAPIConnection.ApiKeyValue);
+                //request.AddHeader(ContentType, Services.WebAPIConnection.ApiKeyValue);
                 request.AddBody(JsonConvert.SerializeObject(newLocation));
 
                 RestResponse response = await client.ExecuteAsync(request);
 
                 HttpStatusCode statusCode = response.StatusCode;
                 if (statusCode == HttpStatusCode.OK) {
+                    return true;
+                } else {
+
+                    return false;
+                }
+            } catch (Exception ex) {
+                string ErrorMsg = ex.Message;
+                throw;
+            }
+        }
+
+        public async Task<bool> insertLocationAsync(P6Enroll_APP.Models.Location newLocation) {
+            try {
+                string RouterSufix = string.Format("Locations");
+                string URL = Services.WebAPIConnection.ProductionURLPrefix + RouterSufix;
+
+                RestClient client = new RestClient(URL);
+                request = new RestRequest(URL, Method.Post);
+                request.AddHeader(Services.WebAPIConnection.ApiKeyName, Services.WebAPIConnection.ApiKeyValue);
+                request.AddBody(JsonConvert.SerializeObject(newLocation));
+
+                RestResponse response = await client.ExecuteAsync(request);
+
+                HttpStatusCode statusCode = response.StatusCode;
+                if (statusCode == HttpStatusCode.Created) {
                     return true;
                 } else {
                     return false;
