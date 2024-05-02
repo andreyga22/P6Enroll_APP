@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P6Enroll_APP.Views.StudentView"
+             Title="Student Page">
+    <VerticalStackLayout>
+        <Label
+            Text="Welcome, please select a student!"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <Picker x:Name="CboxStudents" Title="Select student" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="CboxStudents_SelectedIndexChanged"/>
+
+        <Entry x:Name="TxtId" Placeholder="ID" PlaceholderColor="Black" FontSize="30" Keyboard="Numeric" IsEnabled="false"/>
+        <Entry x:Name="TxtIdStudent" Placeholder="ID Student" PlaceholderColor="Black" FontSize="30" Keyboard="Numeric" IsEnabled="false"/>
+        <Entry x:Name="TxtName" Placeholder="Name" PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+        <Entry x:Name="TxtBirthDate" Placeholder="Birth Date" PlaceholderColor="Black" FontSize="30" Keyboard="Numeric"/>
+        <Entry x:Name="TxtAddress" Placeholder="Addresse" PlaceholderColor="Black" FontSize="30" Keyboard="Numeric"/>
+        <Entry x:Name="TxtPhone" Placeholder="Phone" PlaceholderColor="Black" FontSize="30" Keyboard="Numeric"/>
+        <Entry x:Name="TxtEmail" Placeholder="Email" PlaceholderColor="Black" FontSize="30" Keyboard="Email"/>
+
+        <Button x:Name="BtnSaveStudent" Margin="20" Text="Save" Clicked="BtnSave_Clicked"/>
+        <Button x:Name="BtnCleanStudent" Margin="20" Text="Clean" Clicked="BtnClean_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
