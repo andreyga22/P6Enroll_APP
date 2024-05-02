@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="P6Enroll_APP.Views.ProfessorView"
+             Title="ProfessorView">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome, please select a Professor!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Picker x:Name="CboxProfessor" Title="Select Professor" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="CboxProfessor_SelectedIndexChanged"/>
+
+        <Entry x:Name="TxtId" Placeholder="ID" PlaceholderColor="Black" FontSize="30" Keyboard="Text" IsEnabled="false"/>
+        <Entry x:Name="TxtIdProfessor " Placeholder="ID Professor" PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+        <Entry x:Name="TxtName" Placeholder="Name" PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+        <Entry x:Name="TxtEmail " Placeholder="Email " PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+        <Entry x:Name="TxtPhone " Placeholder="Phone " PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+        <Entry x:Name="TxtAssignment" Placeholder="Assignment " PlaceholderColor="Black" FontSize="30" Keyboard="Text"/>
+
+
+        <Button x:Name="BtnSave" Margin="20" Text="Save" Clicked="BtnSave_Clicked"/>
+        <Button x:Name="BtnClean" Margin="20" Text="Clean" Clicked="BtnClean_Clicked"/>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
+    </VerticalStackLayout>
+</ContentPage>
