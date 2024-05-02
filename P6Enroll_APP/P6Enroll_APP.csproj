@@ -72,7 +72,7 @@
 	  <MauiXaml Update="Views\OptionsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\StudentView.xaml">
+	  <MauiXaml Update="Views\ProfessorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

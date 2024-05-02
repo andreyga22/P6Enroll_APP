@@ -19,4 +19,14 @@ public partial class OptionsPage : ContentPage
     private async void BtnLocations_Clicked_1(object sender, EventArgs e) {
         await Navigation.PushAsync(new P6Enroll_APP.Views.LocationView());
     }
+
+    private async void BtnProfessor_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new P6Enroll_APP.Views.ProfessorView());
+    }
+
+    private void BtnStudents_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
